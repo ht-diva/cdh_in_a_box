@@ -1,0 +1,78 @@
+services:
+  meta-ingest:
+    image: ghcr.io/ht-diva/gwasstudio:df6f78
+    container_name: meta-ingest
+    environment:
+      - CONN_STR="mongodb://mongodb/cdh"
+    command: 'gwasstudio --mongo-uri mongodb://mongodb/cdh meta-ingest --file-path /data/metadata_example.tsv'
+    depends_on:
+      - mongodb
+    volumes:
+      - type: bind
+        source: ./data
+        target: /data
+    networks:
+      - internal_net
+
+  data-ingest:
+    image: ghcr.io/ht-diva/gwasstudio:df6f78
+    container_name: data-ingest
+    environment:
+      - CONN_STR="mongodb://mongodb/cdh"
+    command: 'gwasstudio --aws-access-key-id minioadmin --aws-secret-access-key minioadmin --aws-endpoint-override http://minio:9000 ingest --uri s3://tiledb/data --multiple-input /data/data_example.tsv'
+    depends_on:
+      - minio
+    volumes:
+      - type: bind
+        source: ./data
+        target: /data
+    networks:
+      - internal_net
+
+  mongodb:
+    image: mongodb/mongodb-community-server:${MONGODB_VERSION}
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - internal_net
+
+  vault:
+    image: hashicorp/vault:${VAULT_VERSION}
+    container_name: vault
+    ports:
+      - "8200:8200"
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: root
+      VAULT_DEV_LISTEN_ADDRESS: "0.0.0.0:8200"
+    command: server -dev
+    volumes:
+      - vault_data:/vault/file
+    networks:
+      - internal_net
+
+  minio:
+    image: minio/minio:${MINIO_VERSION}
+    container_name: minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ACCESS_KEY: minioadmin
+      MINIO_SECRET_KEY: minioadmin
+    command: server /data --console-address ":9001"
+    volumes:
+      - minio_data:/data
+    networks:
+      - internal_net
+
+networks:
+  internal_net:
+    driver: bridge
+
+volumes:
+  mongodb_data:
+  vault_data:
+  minio_data:
