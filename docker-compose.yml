@@ -2,8 +2,6 @@ services:
   meta-ingest:
     image: ghcr.io/ht-diva/gwasstudio:df6f78
     container_name: meta-ingest
-    environment:
-      - CONN_STR="mongodb://mongodb/cdh"
     command: 'gwasstudio --mongo-uri mongodb://mongodb/cdh meta-ingest --file-path /data/metadata_example.tsv'
     depends_on:
       - mongodb
@@ -17,8 +15,6 @@ services:
   data-ingest:
     image: ghcr.io/ht-diva/gwasstudio:df6f78
     container_name: data-ingest
-    environment:
-      - CONN_STR="mongodb://mongodb/cdh"
     command: 'gwasstudio --aws-access-key-id minioadmin --aws-secret-access-key minioadmin --aws-endpoint-override http://minio:9000 ingest --uri s3://tiledb/data --multiple-input /data/data_example.tsv'
     depends_on:
       - minio
