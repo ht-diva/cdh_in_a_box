@@ -34,13 +34,12 @@ This version of the Sumstat Computational Data Hub is containerized using Docker
 **Getting Started**
 
 1. Clone the repository: `git clone https://github.com/ht-diva/cdh_in_a_box
-2. Initialize Vault: `make vault`
-3. Start the containers: `make start`
-4. Access the Sumstat Computational Data Hub interfaces: 
+2. Start the containers: `make start`
+3. Access the Sumstat Computational Data Hub interfaces: 
    * Minio: http://localhost:9000
    * Mongodb: `mongosh "mongodb://localhost:27017"`
    * Vault: http://localhost:8200
-5. Shutdown the containers: `make stop`
+4. Shutdown the containers: `make stop`
 
 **Documentation**
 

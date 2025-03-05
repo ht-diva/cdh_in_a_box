@@ -15,13 +15,21 @@ services:
   data-ingest:
     image: ghcr.io/ht-diva/gwasstudio:df6f78
     container_name: data-ingest
-    command: 'gwasstudio --aws-access-key-id minioadmin --aws-secret-access-key minioadmin --aws-endpoint-override http://minio:9000 ingest --uri s3://tiledb/data --multiple-input /data/data_example.tsv'
+    command: 'sleep 30; gwasstudio --aws-access-key-id minioadmin --aws-secret-access-key minioadmin --aws-endpoint-override http://minio:9000 ingest --uri s3://tiledb/data --multiple-input /data/data_example.tsv'
     depends_on:
       - minio
     volumes:
       - type: bind
         source: ./data
         target: /data
+    networks:
+      - internal_net
+
+  vault-init:
+    image: ghcr.io/ht-diva/cdh_in_a_box/vault-init:1524ab
+    container_name: vault-init
+    depends_on:
+      - vault
     networks:
       - internal_net
 
