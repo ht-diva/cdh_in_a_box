@@ -55,7 +55,7 @@ jobs:
         id: build-and-push
         uses: docker/build-push-action@v6.9.0
         with:
-          context: .
+          context: ${{ env.TOOL_NAME }}/
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.GITHUB_SHA_SHORT }}
           cache-from: type=gha
@@ -103,7 +103,7 @@ jobs:
         id: build-and-push
         uses: docker/build-push-action@v6.9.0
         with:
-          context: .
+          context: ${{ env.TOOL_NAME }}/
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.GITHUB_SHA_SHORT }}
           cache-from: type=gha
