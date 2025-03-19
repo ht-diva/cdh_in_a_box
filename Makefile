@@ -5,6 +5,12 @@ TARGETS=start stop
 all:
 	@echo "Try one of: ${TARGETS}"
 
+clean: stop
+	docker system prune -f
+	docker volume rm cdh_in_a_box_vault_data
+	docker volume rm cdh_in_a_box_minio_data
+	docker volume rm cdh_in_a_box_mongodb_data
+
 start: build_vault_init
 	docker-compose up -d vault-init
 	sleep 5
