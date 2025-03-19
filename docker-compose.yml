@@ -1,6 +1,6 @@
 services:
   meta-ingest:
-    image: ghcr.io/ht-diva/gwasstudio:029a9d
+    image: ghcr.io/ht-diva/gwasstudio:3a21d0
     container_name: meta-ingest
     command: 'gwasstudio --stdout --vault-url http://vault:8200 --vault-path secret/cdh --vault-token root meta-ingest --file-path /data/metadata_example.tsv'
     depends_on:
@@ -13,9 +13,9 @@ services:
       - internal_net
 
   data-ingest:
-    image: ghcr.io/ht-diva/gwasstudio:df6f78
+    image: ghcr.io/ht-diva/gwasstudio:3a21d0
     container_name: data-ingest
-    command: 'gwasstudio --aws-access-key-id minioadmin --aws-secret-access-key minioadmin --aws-endpoint-override http://minio:9000 ingest --uri s3://tiledb/data --multiple-input /data/data_example.tsv'
+    command: 'gwasstudio --stdout --vault-url http://vault:8200 --vault-path secret/cdh --vault-token root ingest --uri s3://tiledb/data --multiple-input /data/data_example.tsv'
     depends_on:
       - minio
     volumes:
