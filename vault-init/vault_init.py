@@ -17,11 +17,15 @@ client = hvac.Client(
 
 keys_to_store = {
     'cdh': {
-        's3': {
-            'aws_access_key_id': 'minioadmin',
-            'aws_secret_access_key': 'minioadmin',
-            'aws_endpoint_override': 'http://minio:9000',
-            'uri': 's3://tiledb/data'
+        'tiledb': {
+            'vfs.s3.aws_access_key_id': 'minioadmin',
+            'vfs.s3.aws_secret_access_key': 'minioadmin',
+            'vfs.s3.endpoint_override': 'http://minio:9000',
+            "vfs.s3.use_virtual_addressing": "false",
+            "vfs.s3.verify_ssl": "false",
+            "vfs.s3.scheme": "http",
+            "vfs.s3.region": "",
+            "sm.dedup_coords": "true",
         },
         'mongo': {
             'uri': 'mongodb://mongodb/cdh'
