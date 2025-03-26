@@ -2,7 +2,13 @@
 
 ## Overview
 
-The Sumstat Computational Data Hub is a containerized version of the high-performance storage and query infrastructure designed to facilitate Cross-Dataset Exploration of Genomics Summary Statistics. This system enables efficient storage and rapid querying of large-scale genomics data, such as genome-wide association studies (GWAS) and quantitative trait loci (QTL) data.
+The Sumstat Computational Data Hub in a box is the containerized version of the high-performance storage and query infrastructure designed to facilitate Cross-Dataset Exploration of Genomics Summary Statistics. This system enables efficient storage and rapid querying of large-scale genomics data, such as genome-wide association studies (GWAS) and quantitative trait loci (QTL) data.
+
+The primary purpose of the Sumstat Computational Data Hub infrastructure is to address key challenges in genomic data management:
+
+1. **Data Volume Challenge**: Modern genomic studies generate massive datasets that require specialized storage solutions.
+2. **Integration Problem**: Combining and comparing results across multiple studies is traditionally difficult.
+3. **Accessibility Issue**: Many valuable genomic datasets are stored in incompatible formats or isolated repositories.
 
 **Containerized Infrastructure**
 
