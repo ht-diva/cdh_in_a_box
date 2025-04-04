@@ -1,8 +1,8 @@
 services:
   meta-ingest:
-    image: ghcr.io/ht-diva/gwasstudio:3a21d0
+    image: ghcr.io/ht-diva/gwasstudio:185434
     container_name: meta-ingest
-    command: 'gwasstudio --stdout --vault-url http://vault:8200 --vault-path secret/cdh --vault-token root meta-ingest --file-path /data/metadata_example.tsv'
+    command: 'gwasstudio --stdout --vault-url http://vault:8200 --vault-path cdh --vault-token root meta-ingest --file-path /data/metadata_example.tsv'
     depends_on:
       - mongodb
     volumes:
@@ -13,9 +13,9 @@ services:
       - internal_net
 
   data-ingest:
-    image: ghcr.io/ht-diva/gwasstudio:3a21d0
+    image: ghcr.io/ht-diva/gwasstudio:185434
     container_name: data-ingest
-    command: 'gwasstudio --stdout --vault-url http://vault:8200 --vault-path secret/cdh --vault-token root ingest --uri s3://tiledb/data --multiple-input /data/data_example.tsv'
+    command: 'gwasstudio --stdout --vault-url http://vault:8200 --vault-path cdh --vault-token root ingest --uri s3://tiledb/data --multiple-input /data/data_example.tsv'
     depends_on:
       - minio
     volumes:
