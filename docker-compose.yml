@@ -1,6 +1,6 @@
 services:
   meta-ingest:
-    image: ghcr.io/ht-diva/gwasstudio:185434
+    image: ghcr.io/ht-diva/gwasstudio:9f2841
     container_name: meta-ingest
     command: 'gwasstudio --stdout --vault-url http://vault:8200 --vault-path cdh --vault-token root meta-ingest --file-path /data/metadata_example.tsv'
     depends_on:
@@ -13,7 +13,7 @@ services:
       - internal_net
 
   data-ingest:
-    image: ghcr.io/ht-diva/gwasstudio:185434
+    image: ghcr.io/ht-diva/gwasstudio:9f2841
     container_name: data-ingest
     command: 'gwasstudio --stdout --vault-url http://vault:8200 --vault-path cdh --vault-token root ingest --uri s3://tiledb/data --multiple-input /data/data_example.tsv'
     depends_on:
