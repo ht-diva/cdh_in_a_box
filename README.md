@@ -41,15 +41,27 @@ This version of the Sumstat Computational Data Hub is containerized using Docker
 
 1. Clone the repository: `git clone https://github.com/ht-diva/cdh_in_a_box
 2. Start the containers: `make start`
-3. Access the Sumstat Computational Data Hub interfaces: 
+3. Shutdown the containers: `make stop`
+4. Shutdown and remove the containers: `make clean`
+
+**Usage**
+
+The Sumstat Computational Data Hub web interfaces will be available at:
    * Minio: http://localhost:9000
-   * Mongodb: `mongosh "mongodb://localhost:27017"`
    * Vault: http://localhost:8200
-4. Shutdown the containers: `make stop`
 
-**Documentation**
+The MongoDB is available at:
+   * Docker: `docker exec -it mongodb mongosh`
 
-* [Developer Guide](docs/developer-guide.md)
+To start the sumstat computational data hub client, run the following command:
+   * `docker run --rm -i -v ./results:/results --network cdh_in_a_box_internal_net ghcr.io/ht-diva/gwasstudio:9f2841 /bin/sh`
+
+then digit this command to make a query:
+   * `gwasstudio --stdout --vault-token root --vault-url http://vault:8200 --vault-path cdh meta-query --search-file /results/search_demo_data.yml --output-prefix /results/out`
+
+and this one to export the query results:
+   * `gwasstudio --stdout --vault-token root --vault-url http://vault:8200 --vault-path cdh export --search-file /results/search_demo_data.yml --output-prefix /results/out --uri s3://tiledb/data`
+
 
 **Contributing**
 
