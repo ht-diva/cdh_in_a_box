@@ -54,13 +54,19 @@ The MongoDB is available at:
    * Docker: `docker exec -it mongodb mongosh`
 
 To start the sumstat computational data hub client, run the following command:
-   * `docker run --rm -i -v ./results:/results --network cdh_in_a_box_internal_net ghcr.io/ht-diva/gwasstudio:9f2841 /bin/sh`
+```shell
+docker run --rm -i -v ./results:/results --network cdh_in_a_box_internal_net ghcr.io/ht-diva/gwasstudio:9f2841 /bin/sh
+```
 
 then digit this command to make a query:
-   * `gwasstudio --stdout --vault-token root --vault-url http://vault:8200 --vault-path cdh meta-query --search-file /results/search_demo_data.yml --output-prefix /results/out`
+```shell
+gwasstudio --stdout --vault-token root --vault-url http://vault:8200 --vault-path cdh meta-query --search-file /results/search_demo_data.yml --output-prefix /results/out
+```
 
 and this one to export the query results:
-   * `gwasstudio --stdout --vault-token root --vault-url http://vault:8200 --vault-path cdh export --search-file /results/search_demo_data.yml --output-prefix /results/out --uri s3://tiledb/data`
+```shell
+gwasstudio --stdout --vault-token root --vault-url http://vault:8200 --vault-path cdh export --search-file /results/search_demo_data.yml --output-prefix /results/out --uri s3://tiledb/data
+```
 
 
 **Contributing**
