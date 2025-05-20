@@ -39,7 +39,7 @@ This version of the Sumstat Computational Data Hub is containerized using Docker
 
 **Getting Started**
 
-1. Clone the repository: `git clone https://github.com/ht-diva/cdh_in_a_box
+1. Clone the repository: `git clone https://github.com/ht-diva/cdh_in_a_box`
 2. Start the containers: `make start`
 3. Shutdown the containers: `make stop`
 4. Shutdown and remove the containers: `make clean`
