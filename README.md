@@ -2,9 +2,9 @@
 
 ## Overview
 
-The Sumstat Computational Data Hub in a box is the containerized version of the high-performance storage and query infrastructure designed to facilitate Cross-Dataset Exploration of Genomics Summary Statistics. This system enables efficient storage and rapid querying of large-scale genomics data, such as genome-wide association studies (GWAS) and quantitative trait loci (QTL) data.
+The Sumstat Computational Data Hub (SCDH) in a box is the containerized version of the high-performance storage and query infrastructure designed to facilitate Cross-Dataset Exploration of Genomics Summary Statistics. This system enables efficient storage and rapid querying of large-scale genomics data, such as genome-wide association studies (GWAS) and quantitative trait loci (QTL) data.
 
-The primary purpose of the Sumstat Computational Data Hub infrastructure is to address key challenges in genomic data management:
+The primary purpose of the SCDH infrastructure is to address key challenges in genomic data management:
 
 1. **Data Volume Challenge**: Modern genomic studies generate massive datasets that require specialized storage solutions.
 2. **Integration Problem**: Combining and comparing results across multiple studies is traditionally difficult.
@@ -12,7 +12,7 @@ The primary purpose of the Sumstat Computational Data Hub infrastructure is to a
 
 **Containerized Infrastructure**
 
-This version of the Sumstat Computational Data Hub is containerized using Docker, making it easy to deploy and manage on various environments. The infrastructure consists of several containers:
+This version of the SCDH is containerized using Docker, making it easy to deploy and manage on various environments. The infrastructure consists of several containers:
 
 * **TileDB**: A multi-dimensional array database for storing terabytes of harmonized genomics association studies.
 * **Dask**: A parallel computing library for fast querying and processing of large datasets.
