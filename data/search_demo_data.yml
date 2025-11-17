@@ -3,8 +3,6 @@ study: ukb-d
 category: GWAS
 
 
-
-
 output:
   - build
   - population

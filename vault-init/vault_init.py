@@ -25,7 +25,6 @@ keys_to_store = {
             "vfs.s3.verify_ssl": "false",
             "vfs.s3.scheme": "http",
             "vfs.s3.region": "",
-            "sm.dedup_coords": "true",
         },
         'mongo': {
             'uri': 'mongodb://localhost:27017/cdh'
@@ -40,7 +39,6 @@ keys_to_store = {
             "vfs.s3.verify_ssl": "false",
             "vfs.s3.scheme": "http",
             "vfs.s3.region": "",
-            "sm.dedup_coords": "true",
         },
         'mongo': {
             'uri': 'mongodb://mongodb:27017/cdh'

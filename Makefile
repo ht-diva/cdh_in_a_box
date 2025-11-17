@@ -28,7 +28,7 @@ tag:
 build_vault_init:
 	docker buildx build -t ghcr.io/ht-diva/cdh_in_a_box/vault-init:1524ab vault-init/
 
-meta-query:
+meta_query:
 	mkdir -p results/query
 	docker run --rm -i -v ./data:/data -v ./results:/results --network cdh_in_a_box_internal_net ghcr.io/ht-diva/gwasstudio:6ff728 \
 	gwasstudio \
@@ -58,7 +58,7 @@ export_regions:
 	docker run --rm -i -v ./data:/data -v ./results:/results --network cdh_in_a_box_internal_net ghcr.io/ht-diva/gwasstudio:6ff728 \
 	gwasstudio \
 	 --stdout \
-     --vault-token root \
+	 --vault-token root \
 	 --vault-url http://vault:8200 \
 	 --vault-path cdh \
 	 export \
@@ -72,7 +72,7 @@ export_snps:
 	docker run --rm -i -v ./data:/data -v ./results:/results --network cdh_in_a_box_internal_net ghcr.io/ht-diva/gwasstudio:6ff728 \
 	gwasstudio \
 	 --stdout \
-     --vault-token root \
+	 --vault-token root \
 	 --vault-url http://vault:8200 \
 	 --vault-path cdh \
 	 export \
