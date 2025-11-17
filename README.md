@@ -30,7 +30,7 @@ This version of the CDH is containerized using Docker, making it easy to deploy 
 * **Object Storage**: Provides durable and scalable storage of genomics files using MinIO S3.
 
 <div style="background:#fff; display:inline-block; padding:4px;">
-  <img src="cdh.png" alt="CDH diagram" style="width:60%;"/>
+  <img src="cdh.png" alt="CDH diagram" style="width:80%;"/>
 </div>
 
 **System Requirements**
