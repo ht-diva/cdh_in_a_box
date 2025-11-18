@@ -66,7 +66,7 @@ gwasstudio --stdout --vault-token root --vault-url http://vault:8200 --vault-pat
 
 And export the query results::
 ```shell
-gwasstudio --stdout --vault-token root --vault-url http://vault:8200 --vault-path cdh_ext export --search-file /results/search_demo_data.yml --output-prefix /results/out --uri s3://tiledb/data
+gwasstudio --stdout --vault-token root --vault-url http://vault:8200 --vault-path cdh_ext export --search-file /data/search_demo_data.yml --output-prefix /results/out --uri s3://tiledb/data
 ```
 
 Other `gwasstudio` commands are summarized in the **Makefile**:
