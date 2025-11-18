@@ -1,6 +1,6 @@
 
-TARGETS=start stop
-
+TARGETS=start stop clean meta_query export_full_stats export_regions export_snps
+.PHONY: start stop clean meta_query export_full_stats export_regions export_snps build_vault_init
 
 all:
 	@echo "Try one of: ${TARGETS}"
